@@ -1,0 +1,106 @@
+%
+%   Prof. Dr. Julian Reichwald
+%   auf Basis einer Vorlage von Prof. Dr. Jörg Baumgart
+%   DHBW Mannheim
+%   angepasst an DHBW CAS Richtlinien von Annalena Frey (ohne Gewähr)
+%
+%	ACHTUNG: Für das Erstellen des Literaturverzeichnisses wird das modernere Paket biblatex
+%			 in Kombination mit biber verwendet -- nicht mehr das ältere BibTex!
+% 			 Bitte stellen Sie ggf. Ihre TeX-Umgebung
+% 			 entsprechend ein (z.B. TeXStudio: Einstellungen --> Erzeugen --> Standard Bibliographieprogramm: biber)
+%
+
+\documentclass[
+	12pt,
+	BCOR=5mm,
+	DIV=12,
+	headinclude=on,
+	footinclude=off,
+	parskip=half,
+	bibliography=totoc,
+	listof=entryprefix,
+	toc=listof,
+	pointlessnumbers,
+	plainfootsepline]{scrreprt}
+
+%	Konfigurationsdatei einziehen
+\input{config}
+
+\begin{document}
+
+%% BITTE GEBEN SIE HIER DEN TITEL UND DIE AUTORIN / DEN AUTOR DER ARBEIT AN!
+%% DIESE INFORMATIONEN _MÜSSEN_ GESETZT SEIN, UM TITELBLATT, ABSTRACT UND
+%% EIGENSTÄNDIGKEITSERKLÄRUNG AUTOMATISCH ANZUPASSEN!
+\TitelDerArbeit{Titel}
+\UntertitelDerArbeit{Untertitel}
+\AutorDerArbeit{Autor}
+\Firma{Firma}
+\Kurs{Kurs}
+
+\input{titlepage}
+
+\pagenumbering{roman} % Römische Seitennummerierung
+\normalfont
+
+%--------------------------------
+% Verzeichnisse - nicht benötige Verzeichnisse bitte auskommentieren / löschen.
+%--------------------------------
+
+%   Sperrvermerk
+%\input{nondisclosurenotice}
+
+% Ehrenwörtliche Erklärung ewerkl.tex einziehen
+\input{ewerkl.tex}
+
+%	Kurzfassung
+\input{abstract}
+
+%	Inhaltsverzeichnis
+\tableofcontents
+
+%	Abbildungsverzeichnis
+\listoffigures
+
+%	Tabellenverzeichnis
+\listoftables
+
+%	Listingsverzeichnis
+ \lstlistoflistings
+
+% 	Algorithmenverzeichnis
+\listofalgorithms
+
+% 	Abkürzungsverzeichnis (siehe Datei acronyms.tex!)
+\input{acronyms}
+\ohead{Acronyms} % Neue Header-Definition
+
+%--------------------------------
+% Start des Textteils der Arbeit
+%--------------------------------
+\clearpage
+\ihead{\chaptername~\thechapter} % Neue Header-Definition (inner header)
+\ohead{\headmark} % Neue Header-Definition (outer header)
+\pagenumbering{arabic}  % Arabische Seitenzahlen
+
+%	Anleitungs-Datei anleitung.tex einziehen. Auf diese Weise sollten Sie versuchen, für jedes einzelne
+% Kapitel eine eigene Datei anzulegen und mittels input-Kommando einzuziehen.
+\input{chapter_1}
+\input{chapter_2}
+\input{chapter_3}
+\input{chapter_4}
+\input{chapter_5}
+\input{anleitung}
+
+%	Literaturverzeichnis
+\printbibliography[title=Literaturverzeichnis]
+\cleardoublepage
+
+% Der Anhang beginnt hier - jedes Kapitel wird alphabetisch aufgezählt. (Anhang A, B usw.)
+\appendix
+\ihead{\appendixname~\thechapter} % Neue Header-Definition
+
+% appendix.tex einziehen
+\input{appendix}
+
+
+\end{document}
