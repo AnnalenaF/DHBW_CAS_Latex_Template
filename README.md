@@ -1,4 +1,4 @@
-# LaTeX-Template for Project- and Bachelorthesis at DHBW Mannheim  
+# LaTeX-Template for Thesis at DHBW CAS
 
 ## General Notes
 * __This template is just a sample!__ Please adapt it to the requirements of your scientific advisor (i.e. adapt citation style, page margins etc.)
